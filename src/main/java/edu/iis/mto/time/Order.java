@@ -6,14 +6,18 @@ import java.util.List;
 import org.joda.time.DateTime;
 import org.joda.time.Hours;
 
+import edu.iis.mto.faketime.ITimeSource;
+
 public class Order {
 	private static final int VALID_PERIOD_HOURS = 24;
 	private State orderState;
 	private List<OrderItem> items = new ArrayList<OrderItem>();
 	private DateTime subbmitionDate;
+	private ITimeSource timeSource;
 
-	public Order() {
+	public Order(ITimeSource timeSource) {
 		orderState = State.CREATED;
+		this.timeSource = timeSource;
 	}
 
 	public void addItem(OrderItem item) {
