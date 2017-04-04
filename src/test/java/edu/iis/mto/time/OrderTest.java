@@ -40,5 +40,16 @@ public class OrderTest {
 		
 		Assert.assertThat(order.getOrderState(), is(equalTo(State.SUBMITTED)));
 	}
+	
+	@Test
+	public void testOrderShouldHaveStateRealizedAfterValidHours() {
+		
+		Order order = new Order(new RealTimeSource());
+		order.submit();
+		order.confirm();
+		order.realize();
+		
+		Assert.assertThat(order.getOrderState(), is(equalTo(State.REALIZED)));
+	}
 
 }
