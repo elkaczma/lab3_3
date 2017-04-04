@@ -13,7 +13,7 @@ public class OrderTest {
 	public void setUp() throws Exception {
 	}
 
-	@Test
+	@Test(expected = OrderExpiredException.class)
 	public void testOrderExpiredExceptionThrownAfterExpirationTime() {
 		
 		Order order = new Order(new FakeTimeSource());
