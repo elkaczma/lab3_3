@@ -1,4 +1,4 @@
-package lab3_3;
+package edu.iis.mto.time;
 
 import static org.junit.Assert.*;
 
