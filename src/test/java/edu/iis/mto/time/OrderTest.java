@@ -27,8 +27,18 @@ public class OrderTest {
 	
 	@Test
 	public void testNewOrderShouldHaveStateCreated() {
+		
 		Order order = new Order(new RealTimeSource());
 		Assert.assertThat(order.getOrderState(), is(equalTo(State.CREATED)));
+	}
+	
+	@Test
+	public void testOrderShouldHaveStateSubmittedAfterSubmittion() {
+		
+		Order order = new Order(new RealTimeSource());
+		order.submit();
+		
+		Assert.assertThat(order.getOrderState(), is(equalTo(State.SUBMITTED)));
 	}
 
 }
