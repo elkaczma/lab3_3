@@ -11,8 +11,8 @@ public class OrderTest {
 	public void setUp() throws Exception {
 	}
 
-	@Test
-	public void test() {
+	@Test(expected = OrderExpiredException.class)
+	public void testOrderExpiredExceptionThrownAfterExpirationTime() {
 		fail("Not yet implemented");
 	}
 
